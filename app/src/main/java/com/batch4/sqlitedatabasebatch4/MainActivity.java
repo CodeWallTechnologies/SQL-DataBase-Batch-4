@@ -61,6 +61,30 @@ public class MainActivity extends AppCompatActivity {
             obj.deleteData(id1);
         });
 
+        binding.update.setOnClickListener(v -> {
+            String id = binding.id.getText().toString();
+            String name = binding.name.getText().toString();
+            String email = binding.email.getText().toString();
+            String mobile = binding.mobile.getText().toString();
+            if(id.equals(" ") | name.equals(" ")|email.equals(" ")|
+                    mobile.equals(" ")
+            ){
+                Toast.makeText(this, "Please fill the blanks..", Toast.LENGTH_SHORT).show();
+            }else{
+                if(email.endsWith("@gmail.com")){
+                    obj.updateData(id,name,email, mobile);
+                    Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show();
+                    binding.id.setText(" ");
+                    binding.email.setText(" ");
+                    binding.mobile.setText(" ");
+                    binding.name.setText(" ");
+                }else {
+                    Toast.makeText(this, "Your email is not correct", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
 
 
     }

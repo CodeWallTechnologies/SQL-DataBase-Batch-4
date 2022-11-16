@@ -78,4 +78,37 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         database = this.getWritableDatabase();
         database.delete(TABLE_NAME,"id ="+id,null);
     }
+
+    public void updateData(String id, String name, String email, String mobile) {
+//        long id1 = Long.parseLong(id);
+        database = this.getWritableDatabase();
+
+        String [] names = name.split(" ");
+
+        String str3="";
+        for (String s : names) {
+//            System.out.println(s.substring(0, 1).toUpperCase());
+            String str =   s.substring(0,1).toUpperCase();
+            String str1 = s.substring(1);
+            String str2 = str+str1+" ";
+            str3 += str2;
+        }
+
+        System.out.println(str3);
+        
+//        String[] name1 = name.split(" ");
+//        //{tun,tun}
+//        for (String s : name1) {
+//
+//        }
+        //List list = new List();
+        //HashMap map = new HashMap();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name",str3);
+        contentValues.put("email",email);
+        contentValues.put("mobile",mobile);
+
+        database.update(TABLE_NAME,contentValues,"id =?",new String[]{id});
+//        database.close();
+    }
 }

@@ -85,4 +85,14 @@
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="@+id/save"
         app:layout_constraintTop_toBottomOf="@+id/save" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Update"
+        android:textAllCaps="false"
+        app:layout_constraintBaseline_toBaselineOf="@+id/delete_btn"
+        app:layout_constraintStart_toEndOf="@+id/delete_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
